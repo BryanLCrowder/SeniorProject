@@ -16,9 +16,9 @@ namespace SeniorProject.Data
         public  async Task<User> Login(string username, string password)
         {   
             var user = await _context.Users.FirstOrDefaultAsync(x => x.Username == username);
-            Console.WriteLine("*********User name from db is: *************"+ user.Username);
+            Console.WriteLine(user.Username);
             if(user==null){
-            Console.WriteLine("************IF WE ARE HERE user is null*************");
+            Console.WriteLine("User does not exist");
                 return null;
                 }
             

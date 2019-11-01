@@ -50,6 +50,7 @@ namespace SeniorProject.Controllers
         {   
             // System.Console.WriteLine("user dto obj: "+userForLoginDto.Username); //*This Prints username correctly
             // System.Console.WriteLine("password dto obj: "+userForLoginDto.Password); //*This Prints password correctly
+            
 
             var userFromRepo = await _repo.Login(userForLoginDto.Username.ToLower(), userForLoginDto.Password);
 
