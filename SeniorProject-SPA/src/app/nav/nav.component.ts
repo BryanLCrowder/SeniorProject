@@ -23,7 +23,7 @@ model: any = {};
     }, error => {
          this.alertify.error(error);
     }, () => {
-      this.router.navigate(['/crews']);
+      this.router.navigate(['/friends']);
     }
       ); }
 
@@ -32,8 +32,8 @@ model: any = {};
   }
 
   logout() {
+    this.router.navigate(['']);
     localStorage.removeItem('token');
     this.alertify.message('You have logged out!');
-    this.router.navigate(['/home']);
   }
 }

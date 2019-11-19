@@ -14,11 +14,11 @@ namespace SeniorProject.Models
         public string KnowAs { get; set; }
         public DateTime Created { get; set; }
         public DateTime LastActive { get; set; }
-        public String Introduction { get; set; }
-        public String CarGroup { get; set; }
-        public String Interests { get; set; }
-        public String City { get; set; }
-        public String Country { get; set; }
+        public string Introduction { get; set; }
+        public string CarGroup { get; set; }
+        public string Interests { get; set; }
+        public string City { get; set; }
+        public string Country { get; set; }
         public ICollection<Photo> Photos { get; set; }
     }
 }
