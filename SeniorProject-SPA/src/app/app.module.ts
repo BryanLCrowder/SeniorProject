@@ -1,11 +1,14 @@
 // Files that are imported to the app.
 import { BrowserModule, HammerGestureConfig, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
-import { BsDropdownModule, TabsModule } from 'ngx-bootstrap';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BsDropdownModule, TabsModule, BsDatepickerModule, PaginationModule } from 'ngx-bootstrap';
 import { RouterModule } from '@angular/router';
 import { JwtModule } from '@auth0/angular-jwt';
+import { FileUploadModule } from 'ng2-file-upload';
+import {TimeAgoPipe} from 'time-ago-pipe';
 
 // Files that are stored in the app.
 import { AppComponent } from './app.component';
@@ -29,6 +32,10 @@ import { NgxGalleryModule } from 'ngx-gallery';
 import { MemberEditComponent } from './friends/member-edit/member-edit.component';
 import { MemberEditResolver } from './_resolvers/member-edit.resolver';
 import { PreventUnsavedChanges } from './_guards/prevent-unsaved-changes.guard';
+import { PhotoEditorComponent } from './friends/photo-editor/photo-editor.component';
+import { ListResolver } from './_resolvers/list.resolver';
+import { MessagesResolver } from './_resolvers/messages.resolver';
+
 
 
 
@@ -56,15 +63,22 @@ export class CustomHammerConfig extends HammerGestureConfig  {
       FriendDetailComponent,
       MessagesComponent,
       CrewsComponent,
-      MemberEditComponent
+      MemberEditComponent,
+      PhotoEditorComponent,
+      TimeAgoPipe
    ],
    imports: [
       BrowserModule,
+      BrowserAnimationsModule,
+      PaginationModule.forRoot(),
       HttpClientModule,
+      ReactiveFormsModule,
       FormsModule,
       BsDropdownModule.forRoot(),
+      BsDatepickerModule.forRoot(),
       RouterModule.forRoot(appRoutes),
       NgxGalleryModule,
+      FileUploadModule,
       TabsModule.forRoot(),
       JwtModule.forRoot({
          config: {
@@ -82,7 +96,9 @@ export class CustomHammerConfig extends HammerGestureConfig  {
       AuthGuard,
       UserService,
       FriendDetailResolver,
+      MessagesResolver,
       FriendListsResolver,
+      ListResolver,
       MemberEditResolver,
       { provide: HAMMER_GESTURE_CONFIG, useClass: CustomHammerConfig },
       PreventUnsavedChanges

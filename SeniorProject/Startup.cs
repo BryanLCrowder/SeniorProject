@@ -43,6 +43,7 @@ namespace SeniorProject
                     Newtonsoft.Json.ReferenceLoopHandling.Ignore;
                 });
             services.AddCors();
+            services.Configure<CloudinarySettings>(Configuration.GetSection("CloudinarySettings"));
             services.AddAutoMapper(typeof(CarsRepository).Assembly);
             services.AddScoped<IAuthRepository, AuthRepository>();
             services.AddScoped<ICarsRepository, CarsRepository>();
@@ -57,6 +58,7 @@ namespace SeniorProject
                         ValidateAudience = false
                     };
                 });
+                services.AddScoped<LogUserActivity>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

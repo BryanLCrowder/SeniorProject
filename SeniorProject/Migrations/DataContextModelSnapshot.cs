@@ -16,6 +16,49 @@ namespace SeniorProject.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "2.2.6-servicing-10079");
 
+            modelBuilder.Entity("SeniorProject.Models.Like", b =>
+                {
+                    b.Property<int>("LikerId");
+
+                    b.Property<int>("LikeeId");
+
+                    b.HasKey("LikerId", "LikeeId");
+
+                    b.HasIndex("LikeeId");
+
+                    b.ToTable("Likes");
+                });
+
+            modelBuilder.Entity("SeniorProject.Models.Message", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Content");
+
+                    b.Property<DateTime?>("DateRead");
+
+                    b.Property<bool>("IsRead");
+
+                    b.Property<DateTime>("MessagesSent");
+
+                    b.Property<bool>("RecipientDeleted");
+
+                    b.Property<int>("RecipientId");
+
+                    b.Property<bool>("SenderDeleted");
+
+                    b.Property<int>("SenderId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("RecipientId");
+
+                    b.HasIndex("SenderId");
+
+                    b.ToTable("Messages");
+                });
+
             modelBuilder.Entity("SeniorProject.Models.Photo", b =>
                 {
                     b.Property<int>("Id")
@@ -26,6 +69,8 @@ namespace SeniorProject.Migrations
                     b.Property<string>("Description");
 
                     b.Property<bool>("IsMain");
+
+                    b.Property<string>("PublicID");
 
                     b.Property<string>("Url");
 
@@ -84,6 +129,32 @@ namespace SeniorProject.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Values");
+                });
+
+            modelBuilder.Entity("SeniorProject.Models.Like", b =>
+                {
+                    b.HasOne("SeniorProject.Models.User", "Likee")
+                        .WithMany("Likers")
+                        .HasForeignKey("LikeeId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("SeniorProject.Models.User", "Liker")
+                        .WithMany("Likees")
+                        .HasForeignKey("LikerId")
+                        .OnDelete(DeleteBehavior.Restrict);
+                });
+
+            modelBuilder.Entity("SeniorProject.Models.Message", b =>
+                {
+                    b.HasOne("SeniorProject.Models.User", "Recipient")
+                        .WithMany("MessagesRecieved")
+                        .HasForeignKey("RecipientId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("SeniorProject.Models.User", "Sender")
+                        .WithMany("MessagesSent")
+                        .HasForeignKey("SenderId")
+                        .OnDelete(DeleteBehavior.Restrict);
                 });
 
             modelBuilder.Entity("SeniorProject.Models.Photo", b =>

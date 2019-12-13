@@ -10,6 +10,8 @@ import { FriendListsResolver } from './_resolvers/friend-lists.resolver';
 import { MemberEditComponent } from './friends/member-edit/member-edit.component';
 import { MemberEditResolver } from './_resolvers/member-edit.resolver';
 import { PreventUnsavedChanges } from './_guards/prevent-unsaved-changes.guard';
+import { ListResolver } from './_resolvers/list.resolver';
+import { MessagesResolver } from './_resolvers/messages.resolver';
 
 export const appRoutes: Routes = [
     { path : '', component: HomeComponent},
@@ -18,8 +20,10 @@ export const appRoutes: Routes = [
       runGuardsAndResolvers: 'always',
       canActivate: [AuthGuard],
       children: [
-        {path: 'crews', component: CrewsComponent},
-        {path: 'messages', component: MessagesComponent},
+        {path: 'crews', component: CrewsComponent,
+          resolve: {users: ListResolver}},
+        {path: 'messages', component: MessagesComponent,
+          resolve: {messages: MessagesResolver}},
         {path: 'friends', component: FriendListsComponent,
           resolve: {users: FriendListsResolver}},
         {path: 'friends/:id', component: FriendDetailComponent,

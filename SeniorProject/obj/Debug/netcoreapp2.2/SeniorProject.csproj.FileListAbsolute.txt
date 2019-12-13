@@ -32,7 +32,6 @@
 /Users/BryanLee/Projects/SeniorProject/SeniorProject/bin/Debug/netcoreapp2.2/SeniorProject.dll
 /Users/BryanLee/Projects/SeniorProject/SeniorProject/bin/Debug/netcoreapp2.2/SeniorProject.pdb
 /Users/BryanLee/Projects/SeniorProject/SeniorProject/obj/Debug/netcoreapp2.2/SeniorProject.csprojAssemblyReference.cache
-/Users/BryanLee/Projects/SeniorProject/SeniorProject/obj/Debug/netcoreapp2.2/SeniorProject.csproj.CoreCompileInputs.cache
 /Users/BryanLee/Projects/SeniorProject/SeniorProject/obj/Debug/netcoreapp2.2/SeniorProject.RazorAssemblyInfo.cache
 /Users/BryanLee/Projects/SeniorProject/SeniorProject/obj/Debug/netcoreapp2.2/SeniorProject.RazorAssemblyInfo.cs
 /Users/BryanLee/Projects/SeniorProject/SeniorProject/obj/Debug/netcoreapp2.2/SeniorProject.AssemblyInfoInputs.cache
@@ -40,3 +39,7 @@
 /Users/BryanLee/Projects/SeniorProject/SeniorProject/obj/Debug/netcoreapp2.2/SeniorProject.RazorTargetAssemblyInfo.cache
 /Users/BryanLee/Projects/SeniorProject/SeniorProject/obj/Debug/netcoreapp2.2/SeniorProject.dll
 /Users/BryanLee/Projects/SeniorProject/SeniorProject/obj/Debug/netcoreapp2.2/SeniorProject.pdb
+/Users/BryanLee/Projects/SeniorProject/SeniorProject/bin/Debug/netcoreapp2.2/appsettings.Development.json
+/Users/BryanLee/Projects/SeniorProject/SeniorProject/bin/Debug/netcoreapp2.2/appsettings.json
+/Users/BryanLee/Projects/SeniorProject/SeniorProject/bin/Debug/netcoreapp2.2/Data/UserSeedData.json
+/Users/BryanLee/Projects/SeniorProject/SeniorProject/bin/Debug/netcoreapp2.2/Properties/launchSettings.json
